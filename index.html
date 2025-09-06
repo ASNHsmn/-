@@ -32,6 +32,35 @@
         --color-primary-hover: #A78BFA;
         --color-accent: #C4B5FD;
       }
+      /* Custom styling for the dev mode toggle checkbox */
+      .toggle-checkbox {
+        appearance: none;
+        -webkit-appearance: none;
+        position: relative;
+        width: 40px;
+        height: 22px;
+        background-color: var(--color-bg-tertiary);
+        border-radius: 9999px;
+        cursor: pointer;
+        transition: background-color 0.2s ease-in-out;
+      }
+      .toggle-checkbox::before {
+        content: '';
+        position: absolute;
+        top: 3px;
+        left: 3px;
+        width: 16px;
+        height: 16px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.2s ease-in-out;
+      }
+      .toggle-checkbox:checked {
+        background-color: var(--color-primary);
+      }
+      .toggle-checkbox:checked::before {
+        transform: translateX(18px);
+      }
     </style>
   <script type="importmap">
 {
@@ -39,6 +68,7 @@
     "react/": "https://aistudiocdn.com/react@^19.1.1/",
     "react": "https://aistudiocdn.com/react@^19.1.1",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.1.1/client",
     "@google/genai": "https://aistudiocdn.com/@google/genai@^1.17.0"
   }
 }

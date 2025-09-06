@@ -26,6 +26,11 @@ export const translations = {
         topP: { en: "Focus (Top-P)", ar: "التركيز" },
         resetApp: { en: "Reset App", ar: "إعادة ضبط التطبيق" },
         resetAppConfirm: { en: "Are you sure? This will delete all conversations.", ar: "هل أنت متأكد؟ سيتم حذف جميع المحادثات." },
+        
+        // Daily Limit
+        dailyLimit: { en: "Daily Messages", ar: "الرسائل اليومية" },
+        messagesRemaining: { en: "{{count}} / {{limit}} remaining", ar: "{{count}} / {{limit}} متبقية" },
+        limitReachedPlaceholder: { en: "You have reached your daily limit. Try again tomorrow.", ar: "لقد وصلت إلى حدك اليومي. حاول مرة أخرى غدًا." },
 
         
         // New Features

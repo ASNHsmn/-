@@ -47,3 +47,8 @@ export type ModelConfig = {
   temperature: number;
   topP: number;
 };
+
+export type MessageLimit = {
+  count: number;
+  lastReset: string; // YYYY-MM-DD
+};

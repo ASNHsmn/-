@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
-import { AIPersonality, ChatMessage, AppLanguage, AIAvatar, AIGender, Theme, Conversation, ModelConfig } from './types.ts';
+import { AIPersonality, ChatMessage, AppLanguage, AIAvatar, AIGender, Theme, Conversation, ModelConfig, MessageLimit } from './types.ts';
 import ChatScreen from './components/ChatScreen.tsx';
 import Sidebar from './components/Sidebar.tsx';
 import { getSystemInstruction } from './services/geminiService.ts';
@@ -9,6 +9,7 @@ import SetupScreen from './components/SetupScreen.tsx';
 import { translations } from './locales.ts';
 
 const generateUUID = () => crypto.randomUUID();
+const DAILY_MESSAGE_LIMIT = 50;
 
 const defaultPersonality: AIPersonality = {
   avatar: AIAvatar.ORB,
@@ -36,6 +37,12 @@ const App: React.FC = () => {
   const [showSetup, setShowSetup] = useState(false);
   const [showOnboarding, setShowOnboarding] = useState(false);
 
+  // Daily Message Limit
+  const [dailyMessageLimit, setDailyMessageLimit] = useState<MessageLimit>({
+    count: DAILY_MESSAGE_LIMIT,
+    lastReset: new Date().toISOString().split('T')[0], // YYYY-MM-DD
+  });
+
   useEffect(() => {
     try {
       const savedConversations = localStorage.getItem('jaml-conversations');
@@ -44,6 +51,7 @@ const App: React.FC = () => {
       const onboardingComplete = localStorage.getItem('jaml-onboarding-complete');
       const savedModelConfig = localStorage.getItem('jaml-model-config');
       const savedPersonality = localStorage.getItem('jaml-personality');
+      const savedLimit = localStorage.getItem('jaml-message-limit');
 
       if (savedPersonality) {
         setAiPersonality(JSON.parse(savedPersonality));
@@ -52,6 +60,21 @@ const App: React.FC = () => {
         }
       } else {
         setShowSetup(true);
+      }
+      
+      if (savedLimit) {
+          const limitData: MessageLimit = JSON.parse(savedLimit);
+          const today = new Date().toISOString().split('T')[0];
+          // Check if the last reset was today
+          if (limitData.lastReset === today) {
+              setDailyMessageLimit(limitData);
+          } else {
+              // It's a new day, reset the limit
+              setDailyMessageLimit({
+                  count: DAILY_MESSAGE_LIMIT,
+                  lastReset: today,
+              });
+          }
       }
 
       if (savedConversations) {
@@ -79,9 +102,10 @@ const App: React.FC = () => {
        localStorage.setItem('jaml-theme', theme);
        localStorage.setItem('jaml-model-config', JSON.stringify(modelConfig));
        localStorage.setItem('jaml-personality', JSON.stringify(aiPersonality));
+       localStorage.setItem('jaml-message-limit', JSON.stringify(dailyMessageLimit));
        document.documentElement.setAttribute('data-theme', theme);
     }
-  }, [conversations, activeConversationId, theme, modelConfig, aiPersonality, isLoaded]);
+  }, [conversations, activeConversationId, theme, modelConfig, aiPersonality, dailyMessageLimit, isLoaded]);
 
   useEffect(() => {
     document.documentElement.lang = language;
@@ -193,6 +217,10 @@ const App: React.FC = () => {
     setAiPersonality(prev => ({ ...prev, gender }));
   }, []);
 
+  const handleMessageSent = useCallback(() => {
+    setDailyMessageLimit(prev => ({ ...prev, count: Math.max(0, prev.count - 1) }));
+  }, []);
+
   const activeConversation = conversations.find(c => c.id === activeConversationId);
 
   if (!isLoaded) {
@@ -224,6 +252,7 @@ const App: React.FC = () => {
         onResetApp={resetApp}
         aiPersonality={aiPersonality}
         onAiPersonalityChange={handleAiPersonalityChange}
+        dailyMessageLimit={dailyMessageLimit}
       />
       <main className="flex-1 flex flex-col h-full">
          <ChatScreen 
@@ -241,6 +270,9 @@ const App: React.FC = () => {
             onDevModeActivate={() => setDevMode(true)}
             updateMessageContent={updateMessageContent}
             modelConfig={modelConfig}
+            // Message Limit Props
+            messagesLeft={dailyMessageLimit.count}
+            onMessageSent={handleMessageSent}
         />
       </main>
     </div>

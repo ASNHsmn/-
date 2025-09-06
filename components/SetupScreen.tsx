@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { translations } from '../locales.ts';
 import { AppLanguage, AIGender } from '../types.ts';
@@ -13,8 +12,8 @@ const SetupScreen: React.FC<SetupScreenProps> = ({ language, onSelect }) => {
   const t = (key: keyof typeof translations['setup']) => translations.setup[key][language];
 
   return (
-    <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 animate-fade-in">
-      <div className="w-full max-w-md bg-[var(--color-bg-secondary)] rounded-2xl shadow-2xl p-6 md:p-8 text-center border border-[var(--color-border)] transform transition-all animate-slide-up">
+    <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-[var(--color-bg-secondary)] rounded-2xl shadow-2xl p-6 md:p-8 text-center border border-[var(--color-border)]">
         <h2 className="text-2xl font-bold mb-3 text-[var(--color-text-primary)]">{t('title')}</h2>
         <p className="text-[var(--color-text-secondary)] mb-8">{t('description')}</p>
         

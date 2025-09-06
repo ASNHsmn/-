@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { translations } from '../locales.ts';
 import { AppLanguage, AIAvatar, AIPersonality, AIGender } from '../types.ts';
@@ -43,7 +42,7 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ language, onComplet
       description: t('featuresDescription'),
     },
     {
-      icon: <div className="space-y-4 text-left">
+      icon: <div className="space-y-4">
               <div className="flex items-center gap-4"><PaperClipIcon className="w-8 h-8 flex-shrink-0 text-[var(--color-accent)]" /><div><h4 className="font-bold">{t('tipAttachTitle')}</h4><p className="text-sm text-[var(--color-text-secondary)]">{t('tipAttachDescription')}</p></div></div>
               <div className="flex items-center gap-4"><CpuChipIcon className="w-8 h-8 flex-shrink-0 text-[var(--color-accent)]" /><div><h4 className="font-bold">{t('tipDeepThinkingTitle')}</h4><p className="text-sm text-[var(--color-text-secondary)]">{t('tipDeepThinkingDescription')}</p></div></div>
               <div className="flex items-center gap-4"><PhotoIcon className="w-8 h-8 flex-shrink-0 text-[var(--color-accent)]" /><div><h4 className="font-bold">{t('tipImageInteractionTitle')}</h4><p className="text-sm text-[var(--color-text-secondary)]">{t('tipImageInteractionDescription')}</p></div></div>
@@ -64,8 +63,8 @@ const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ language, onComplet
   };
 
   return (
-    <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4 animate-fade-in">
-      <div className="w-full max-w-md bg-[var(--color-bg-secondary)] rounded-2xl shadow-2xl p-6 md:p-8 text-center border border-[var(--color-border)] transform transition-all animate-slide-up">
+    <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center p-4">
+      <div className="w-full max-w-md bg-[var(--color-bg-secondary)] rounded-2xl shadow-2xl p-6 md:p-8 text-center border border-[var(--color-border)]">
         <div className="mb-6">{currentStep.icon}</div>
         <h2 className="text-2xl font-bold mb-3 text-[var(--color-text-primary)]">{currentStep.title}</h2>
         <p className="text-[var(--color-text-secondary)] mb-8 whitespace-pre-wrap">{currentStep.description}</p>

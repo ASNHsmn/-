@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { AIAvatar } from '../types.ts';
 
@@ -7,14 +6,14 @@ interface AvatarDisplayProps {
 }
 
 const OrbAvatar: React.FC = () => (
-    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
         <defs>
-            <linearGradient id="splitGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="50%" stopColor="#A47E3B" />
-                <stop offset="50%" stopColor="#8B5CF6" />
-            </linearGradient>
+            <radialGradient id="orbGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                <stop offset="0%" stopColor="var(--color-primary-hover)" />
+                <stop offset="100%" stopColor="var(--color-primary)" />
+            </radialGradient>
         </defs>
-        <circle cx="50" cy="50" r="48" fill="url(#splitGradient)" />
+        <circle cx="50" cy="50" r="45" fill="url(#orbGradient)" />
     </svg>
 );
 
@@ -66,7 +65,7 @@ const NebulaAvatar: React.FC = () => (
         <g filter="url(#goo)">
             <circle cx="50" cy="50" r="25" fill="url(#nebulaGradient)" />
             <circle cx="40" cy="40" r="15" fill="var(--color-primary-hover)" />
-             <circle cx="60" cy="60" r="18" fill="#F472B6" opacity="0.7" />
+             <circle cx="60" cy="60" r="18" fill="var(--color-primary-hover)" opacity="0.7" />
         </g>
     </svg>
 );
