@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ar" dir="auto">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>جمل - رفيقك الذكي</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      :root, [data-theme='earthy'] {
+        --color-bg-primary: #2C2A2A; /* Deeper brown-gray */
+        --color-bg-secondary: #403D39; /* Richer brown */
+        --color-bg-tertiary: #524F4A;
+        --color-border: #6B655B;
+        --color-text-primary: #F5EFE6; /* Off-white */
+        --color-text-secondary: #D4CFC4; /* Lighter gray */
+        --color-primary: #A47E3B; /* Gold-ish brown */
+        --color-primary-hover: #B8914E;
+        --color-accent: #D4A373; /* Lighter accent */
+      }
+      [data-theme='purple'] {
+        --color-bg-primary: #111827;
+        --color-bg-secondary: #1F2937;
+        --color-bg-tertiary: #374151;
+        --color-border: #4B5563;
+        --color-text-primary: #F9FAFB;
+        --color-text-secondary: #D1D5DB;
+        --color-primary: #8B5CF6;
+        --color-primary-hover: #A78BFA;
+        --color-accent: #C4B5FD;
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.1.1/",
+    "react": "https://aistudiocdn.com/react@^19.1.1",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.1.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.17.0"
+  }
+}
+</script>
+</head>
+  <body class="bg-[var(--color-bg-primary)] text-[var(--color-text-primary)] font-['Inter',_'Tajawal',_sans-serif]">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
