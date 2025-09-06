@@ -1,8 +1,9 @@
+
 import React, { useState } from 'react';
-import { translations } from '../locales';
-import { AppLanguage, AIAvatar, AIPersonality, AIGender } from '../types';
-import { ChatBubbleLeftRightIcon, CodeBracketIcon, DocumentMagnifyingGlassIcon, PaintBrushIcon, PaperClipIcon, CpuChipIcon, PhotoIcon } from './icons/Icons';
-import AvatarDisplay from './AvatarDisplay';
+import { translations } from '../locales.ts';
+import { AppLanguage, AIAvatar, AIPersonality, AIGender } from '../types.ts';
+import { ChatBubbleLeftRightIcon, CodeBracketIcon, DocumentMagnifyingGlassIcon, PaintBrushIcon, PaperClipIcon, CpuChipIcon, PhotoIcon } from './icons/Icons.tsx';
+import AvatarDisplay from './AvatarDisplay.tsx';
 
 interface OnboardingScreenProps {
   language: AppLanguage;

@@ -1,7 +1,8 @@
+
 import React, { useRef, useEffect, useState } from 'react';
-import { AppLanguage, Theme, Conversation, ModelConfig, AIPersonality, AIGender } from '../types';
-import { translations } from '../locales';
-import { PlusIcon, TrashIcon, DocumentMagnifyingGlassIcon, PaperClipIcon, XMarkIcon, PencilSquareIcon, UserCircleIcon, EyeIcon } from './icons/Icons';
+import { AppLanguage, Theme, Conversation, ModelConfig, AIPersonality, AIGender } from '../types.ts';
+import { translations } from '../locales.ts';
+import { PlusIcon, TrashIcon, DocumentMagnifyingGlassIcon, PaperClipIcon, XMarkIcon, PencilSquareIcon, UserCircleIcon, EyeIcon } from './icons/Icons.tsx';
 
 interface SidebarProps {
   conversations: Conversation[];

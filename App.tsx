@@ -1,11 +1,12 @@
+
 import React, { useState, useEffect, useCallback } from 'react';
-import { AIPersonality, ChatMessage, AppLanguage, AIAvatar, AIGender, Theme, Conversation, ModelConfig } from './types';
-import ChatScreen from './components/ChatScreen';
-import Sidebar from './components/Sidebar';
-import { getSystemInstruction } from './services/geminiService';
-import OnboardingScreen from './components/OnboardingScreen';
-import SetupScreen from './components/SetupScreen';
-import { translations } from './locales';
+import { AIPersonality, ChatMessage, AppLanguage, AIAvatar, AIGender, Theme, Conversation, ModelConfig } from './types.ts';
+import ChatScreen from './components/ChatScreen.tsx';
+import Sidebar from './components/Sidebar.tsx';
+import { getSystemInstruction } from './services/geminiService.ts';
+import OnboardingScreen from './components/OnboardingScreen.tsx';
+import SetupScreen from './components/SetupScreen.tsx';
+import { translations } from './locales.ts';
 
 const generateUUID = () => crypto.randomUUID();
 

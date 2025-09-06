@@ -1,5 +1,6 @@
+
 import { GoogleGenAI, Chat, Content, Modality } from "@google/genai";
-import { AIPersonality, AIGender, ChatMessage, ModelConfig } from '../types';
+import { AIPersonality, AIGender, ChatMessage, ModelConfig } from '../types.ts';
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
 

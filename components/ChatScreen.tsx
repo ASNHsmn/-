@@ -1,10 +1,11 @@
+
 import React, { useState, useEffect, useRef } from 'react';
-import { AIPersonality, ChatMessage, AppLanguage, Conversation, ModelConfig, AIGender } from '../types';
-import { startChat, reviewTextFile, reviewCode, generateImage, generateLogo, generateCode, summarizeConversation, generateConversationTitle, editImage, solveHomeworkFromImage } from '../services/geminiService';
-import AvatarDisplay from './AvatarDisplay';
+import { AIPersonality, ChatMessage, AppLanguage, Conversation, ModelConfig, AIGender } from '../types.ts';
+import { startChat, reviewTextFile, reviewCode, generateImage, generateLogo, generateCode, summarizeConversation, generateConversationTitle, editImage, solveHomeworkFromImage } from '../services/geminiService.ts';
+import AvatarDisplay from './AvatarDisplay.tsx';
 import { Chat } from '@google/genai';
-import { translations } from '../locales';
-import { SendIcon, Bars3Icon, ClipboardIcon, DocumentTextIcon, CodeBracketIcon, PhotoIcon, TrashIcon, PencilSquareIcon, CheckIcon, XMarkIcon, PaperClipIcon, DocumentMagnifyingGlassIcon, CpuChipIcon, ArrowDownTrayIcon } from './icons/Icons';
+import { translations } from '../locales.ts';
+import { SendIcon, Bars3Icon, ClipboardIcon, DocumentTextIcon, CodeBracketIcon, PhotoIcon, TrashIcon, PencilSquareIcon, CheckIcon, XMarkIcon, PaperClipIcon, DocumentMagnifyingGlassIcon, CpuChipIcon, ArrowDownTrayIcon } from './icons/Icons.tsx';
 
 interface ChatScreenProps {
   conversation: Conversation | undefined;

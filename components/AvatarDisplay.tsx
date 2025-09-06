@@ -1,5 +1,6 @@
+
 import React from 'react';
-import { AIAvatar } from '../types';
+import { AIAvatar } from '../types.ts';
 
 interface AvatarDisplayProps {
   avatar: AIAvatar;

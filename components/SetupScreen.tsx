@@ -1,7 +1,8 @@
+
 import React from 'react';
-import { translations } from '../locales';
-import { AppLanguage, AIGender } from '../types';
-import { UserCircleIcon } from './icons/Icons'; // Using UserCircle as a generic person icon
+import { translations } from '../locales.ts';
+import { AppLanguage, AIGender } from '../types.ts';
+import { UserCircleIcon } from './icons/Icons.tsx'; // Using UserCircle as a generic person icon
 
 interface SetupScreenProps {
   language: AppLanguage;
